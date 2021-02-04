@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ScoreScreen extends StatelessWidget {
+  int result;
+  int maximum;
+
+  ScoreScreen({Key key, @required this.result, @required this.maximum})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +36,7 @@ class ScoreScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   children: [
                     Text(
-                      '3',
+                      '$result',
                       style: TextStyle(
                         fontSize: 100,
                         fontWeight: FontWeight.w800,
@@ -38,7 +44,7 @@ class ScoreScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '/ 5',
+                      '/ $maximum',
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.w600,
@@ -65,7 +71,9 @@ class ScoreScreen extends StatelessWidget {
             ),
             child: Center(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                },
                 child: Text(
                   'Jogar Novamente',
                   style: TextStyle(fontSize: 18),

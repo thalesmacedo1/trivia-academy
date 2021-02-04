@@ -36,7 +36,7 @@ class _TriviaScreenState extends State<TriviaScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'PERGUNTA 1',
+                  'PERGUNTA:',
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(
@@ -193,7 +193,10 @@ class _TriviaScreenState extends State<TriviaScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ScoreScreen(),
+                        builder: (context) => ScoreScreen(
+                          maximum: questionsList.length,
+                          result: score,
+                        ),
                       ),
                     );
                   }
