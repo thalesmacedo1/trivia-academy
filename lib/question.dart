@@ -12,14 +12,27 @@ class Question {
   static List<Question> getQuestionList() {
     List<Question> questions = [];
 
-    questions.add(Question(
-      'O que é Flutter?',
-      'Um novo smartphone.',
-      'Um sistema operacional',
-      'Um SDK de desenvolvimento multiplataforma',
-      'Um serviço do Google',
-      3,
-    ));
+    questions.add(
+      Question(
+        'O que é Flutter?',
+        'Um novo smartphone.',
+        'Um sistema operacional',
+        'Um SDK de desenvolvimento multiplataforma',
+        'Um serviço do Google',
+        3,
+      ),
+    );
+
+    questions.add(
+      Question(
+        'Qual a linguagem de programação usada pelo Flutter?',
+        'Dart',
+        'Java',
+        'JavaScript',
+        'Go',
+        1,
+      ),
+    );
 
     return questions;
   }
