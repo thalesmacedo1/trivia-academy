@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:triviaacademy/question.dart';
 
 class TriviaScreen extends StatefulWidget {
   @override
@@ -7,6 +8,7 @@ class TriviaScreen extends StatefulWidget {
 
 class _TriviaScreenState extends State<TriviaScreen> {
   int answer = 0;
+  List<Question> questionsList = Question.getQuestionList();
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +27,16 @@ class _TriviaScreenState extends State<TriviaScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Question 1',
+                  'PERGUNTA 1',
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(
                   height: 16,
                 ),
-                Text('What is Flutter?'),
+                Text(
+                  questionsList[0].questionText,
+                  style: TextStyle(fontSize: 18),
+                ),
               ],
             ),
           ),
@@ -55,7 +60,10 @@ class _TriviaScreenState extends State<TriviaScreen> {
                   child: RadioListTile(
                     value: 1,
                     groupValue: answer,
-                    title: Text('É um framework da Google'),
+                    title: Text(
+                      questionsList[0].option1,
+                      style: TextStyle(fontSize: 16),
+                    ),
                     onChanged: (int value) => {
                       setState(() {
                         answer = value;
@@ -80,7 +88,66 @@ class _TriviaScreenState extends State<TriviaScreen> {
                   child: RadioListTile(
                     value: 2,
                     groupValue: answer,
-                    title: Text('É um novo sistema operacional'),
+                    title: Text(
+                      questionsList[0].option2,
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    onChanged: (int value) => {
+                      setState(() {
+                        answer = value;
+                      })
+                    },
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(32, 10, 32, 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.15),
+                        spreadRadius: 2,
+                        blurRadius: 3,
+                        offset: Offset(1, 3),
+                      )
+                    ],
+                  ),
+                  child: RadioListTile(
+                    value: 3,
+                    groupValue: answer,
+                    title: Text(
+                      questionsList[0].option3,
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    onChanged: (int value) => {
+                      setState(() {
+                        answer = value;
+                      })
+                    },
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(32, 10, 32, 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.15),
+                        spreadRadius: 2,
+                        blurRadius: 3,
+                        offset: Offset(1, 3),
+                      )
+                    ],
+                  ),
+                  child: RadioListTile(
+                    value: 4,
+                    groupValue: answer,
+                    title: Text(
+                      questionsList[0].option4,
+                      style: TextStyle(fontSize: 16),
+                    ),
                     onChanged: (int value) => {
                       setState(() {
                         answer = value;
@@ -89,6 +156,35 @@ class _TriviaScreenState extends State<TriviaScreen> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Container(
+            height: 87,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.25),
+                  spreadRadius: 3,
+                  blurRadius: 5,
+                  offset: Offset(0, -1),
+                ),
+              ],
+            ),
+            child: Center(
+              child: FlatButton(
+                onPressed: () {},
+                child: Text(
+                  'Responder',
+                  style: TextStyle(fontSize: 18),
+                ),
+                color: Color(0xffDA0175),
+                textColor: Color(0xffF7F7F7),
+                padding: EdgeInsets.fromLTRB(60, 11, 60, 11),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
             ),
           ),
         ],
